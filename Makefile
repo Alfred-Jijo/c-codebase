@@ -1,14 +1,13 @@
-NAME = template
-VERSION = 0.0.0
+NAME = codebase
+VERSION = 0.0.1
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
 CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow -std=c99 
-# -fsanitize=address 
 
-SRC = lib/ds.c lib/log/src/log.c src/main.c
+SRC = src/main.c
 OBJ = $(SRC:%.c=%.o)
-INCLUDE = -Iinclude -Ilib/log/src
+INCLUDE = Iinclude
 
 all: clean $(NAME) run
 

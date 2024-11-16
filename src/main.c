@@ -1,6 +1,4 @@
-#include <typedef.h>
-#include <stb_ds.h>
-#include <macros.h>
+#include "typedef.h"
 
 #include <stdio.h>
 
