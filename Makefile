@@ -3,19 +3,18 @@ VERSION = 0.0.1
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
-CFLAGS = -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow -std=c99 
+CFLAGS =  -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
 SRC = src/main.c
 OBJ = $(SRC:%.c=%.o)
-INCLUDE = Iinclude
 
 all: clean $(NAME) run
 
 $(NAME): $(OBJ)
-	$(GCC) $(OBJ) -o $(NAME) $(CFLAGS) $(INCLUDE)
+	$(GCC) $(OBJ) -o $(NAME) $(CFLAGS)
 
 .c.o:
-	$(GCC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
+	$(GCC) -c $< -o $@ $(CFLAGS)
 
 run: $(NAME)
 	./$(NAME)
