@@ -11,22 +11,26 @@ int main() {
     Arena arena = arena_init(buffer, size);
     Allocator all = arena_alloc_init(&arena);
 
-    u8 *x = make(u8, 420, all);
-    size_t *y = make(size_t, 23, all);
-    char *z = make(char, 69, all);
+    u8 *x = make(u8, 1, all);
+    size_t *y = make(size_t, 2, all);
+    char *z = make(char, 3, all);
 
-    for (int i = 0; i < 420; i += 1) {
+    for (int i = 0; i < 1; i += 1) {
         x[i] = i;
     } 
 
-    for (int i = 0; i < 23; i += 1) {
+    for (int i = 0; i < 2; i += 1) {
         y[i] = (size_t)i;
     }
 
-    for (int i = 0; i < 69; i += 1)  {
+    for (int i = 0; i < 3; i += 1)  {
         z[i] = (char)i + '!';
     }
 
-    release(size, arena.base, all);
+    arena_print(&arena);
+    // For arena allocators doesn nothing
+    // release(size, arena.base, all);
+    arena_free_all(&arena, buffer);
+    arena_print(&arena);
     return 0;
 }

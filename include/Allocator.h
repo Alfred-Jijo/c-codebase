@@ -1,7 +1,9 @@
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 
-#include "common.h"
+#include <common.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct common_allocator {
     void *(*alloc_func) (size_t size, void *context);
@@ -42,7 +44,7 @@ usize align_forward(usize ptr, size_t alignment);
 void *arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
 void *arena_alloc(size_t size, void *context);
 void *arena_free(size_t size, void *ptr, void *context);
-void arena_free_all(void *context);
+void arena_free_all(void *context, void *buffer);
 Arena arena_init(void *buffer, size_t size);
 
 /*
@@ -107,10 +109,12 @@ arena_free(size_t size, void *ptr, void *context) {
 
 
 void 
-arena_free_all(void *context) {
+arena_free_all(void *context, void *buffer) {
     Arena *a = (Arena *)context;
     a->offset = 0;
     a->committed = 0;
+    free(buffer);
+    a->size = 0;
 }
 
 Arena
@@ -119,6 +123,11 @@ arena_init(void *buffer, size_t size) {
         .base = buffer,
         .size = size
     };
+}
+
+void
+arena_print(const Arena *arena) {
+    printf("commited: %zu, size: %zu\n", arena->committed, arena->size);
 }
 
 #define arena_alloc_init(a) (Allocator){arena_alloc, arena_free, a}
