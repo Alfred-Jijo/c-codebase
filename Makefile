@@ -1,5 +1,5 @@
 NAME = codebase
-VERSION = 0.0.4
+VERSION = 0.0.5
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
