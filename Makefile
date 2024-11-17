@@ -5,7 +5,7 @@ PREFIX ?= $(HOME)/.local
 GCC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
-SRC = lib/Allocator.c src/main.c
+SRC = lib/Allocator.c  src/main.c
 OBJ = $(SRC:%.c=%.o)
 INCLUDE = -Iinclude 
 

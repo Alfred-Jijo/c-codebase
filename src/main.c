@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int 
 main() {
     size_t size = 1 * KB;
@@ -29,8 +30,6 @@ main() {
     }
 
     arena_print(&arena);
-    // For arena allocators doesn nothing
-    // release(size, arena.base, all);
     arena_free_all(&arena, buffer);
     arena_print(&arena);
     return 0;
