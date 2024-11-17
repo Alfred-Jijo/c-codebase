@@ -1,7 +1,7 @@
 # A Collection Of All Random Stuff I Wanna Know About Implemented In C
 
 ## Quick Start
-Requirements - gcc
+Requirements - gcc make
 ```sh
 make
 ```
