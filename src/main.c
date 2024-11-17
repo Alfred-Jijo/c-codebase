@@ -1,6 +1,6 @@
-#define ARENA_IMPLEMENTATION  
-#include "Allocator.h"
-#include "common.h"
+#include <Allocator.h>
+#include <common.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 

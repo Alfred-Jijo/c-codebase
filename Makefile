@@ -1,21 +1,21 @@
 NAME = codebase
-VERSION = 0.0.3
+VERSION = 0.0.4
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
-SRC = src/Allocator.c src/main.c
-
+SRC = lib/Allocator.c src/main.c
 OBJ = $(SRC:%.c=%.o)
+INCLUDE = -Iinclude 
 
 all: clean $(NAME) run
 
 $(NAME): $(OBJ)
-	$(GCC) $(OBJ) -o ./out/$(NAME) $(CFLAGS)
+	$(GCC) $(OBJ) -o ./out/$(NAME) $(CFLAGS) $(INCLUDE)
 
 .c.o:
-	$(GCC) -c $< -o $@ $(CFLAGS)
+	$(GCC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 run: $(NAME)
 	./out/$(NAME)
