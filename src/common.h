@@ -23,12 +23,12 @@ typedef long double f128;
 
 typedef uint8_t byte;
 
-size_t PAGE_SIZE = 0;
+// size_t PAGE_SIZE = 0;
 
 #define KB (1024ULL)
 #define MB (KB * 1024)
 #define GB (MB * 1024)
 #define DEFAULT_ALIGNMENT (sizeof(void *) * 2)
-#define IS_POWER_OF_TWO(x) (x != 0 && (x & (x - 1)) == 0)
+#define is_power_of_two(x) (x != 0 && (x & (x - 1)) == 0)
 
 #endif // COMMOM_H
