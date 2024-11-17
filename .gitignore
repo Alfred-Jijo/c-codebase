@@ -54,3 +54,5 @@ dkms.conf
 compile_commands.json
 .cache
 zig-*
+out/
+.vscode/
