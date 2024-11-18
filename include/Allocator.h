@@ -18,43 +18,38 @@ typedef struct arena_allocator {
     size_t committed;
 } Arena;
 
+//! MACROS
 /*
- * @Function: make
- * @Description: Allocates memory for an array of elements of type T
+ * make:
+ * Allocates memory for an array of elements of type T
  * @param T: The type of elements to allocate
  * @param n: Number of elements to allocate
  * @param a: Allocator structure containing allocation functions and context
- * @return: Pointer to the allocated memory, cast to type T*
- * @note: Returns NULL if allocation fails
+ * @return Pointer to the allocated memory, cast to type T*
+ * @note Returns NULL if allocation fails
  */
 #define make(T, n, a) ((T *)((a).alloc_func(sizeof(T) * (n), (a).context)))
 
 /*
- * @Function: release
- * @Description: Releases previously allocated memory using the provided allocator
+ * release:
+ * Releases previously allocated memory using the provided allocator
  * @param s: Size of the memory block to free in bytes
  * @param p: Pointer to the memory block to free
  * @param a: Allocator structure containing free functions and context
  */
 #define release(s, p, a) ((a).free_func((s), (p), (a).context))
 
-#ifndef ARENA_IMPLEMENTATION
 
-usize align_forward(usize ptr, size_t alignment);
-void *arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
-void *arena_alloc(size_t size, void *context);
-void *arena_free(size_t size, void *ptr, void *context);
-void arena_free_all(void *context, void *buffer);
-Arena arena_init(void *buffer, size_t size);
-
+//! Functions
 /*
- * @Function: align_forward
- * @Description: Aligns a memory address forward to the next specified power-of-two boundary
+ * align_forward: 
+ * Aligns a memory address forward to the next specified power-of-two boundary
  * @param ptr: Memory address to align (as uintptr_t)
  * @param alignment: Desired alignment value (must be power of 2)
- * @return: Aligned address, or 0 if alignment is not a power of 2
- * @example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
+ * @return Aligned address, or 0 if alignment is not a power of 2
+ * @example align_forward(74, 8) returns 80 (next 8-byte aligned address)
  */
+usize align_forward(usize ptr, size_t alignment);
 
 usize
 align_forward(usize ptr, size_t alignment) {
@@ -69,9 +64,28 @@ align_forward(usize ptr, size_t alignment) {
     if (modulo) {
         p += a - modulo;
     }
-
     return p;
 }
+
+///////////////////////////////////////////////////////////////////////
+/// Arena Implementation                                           ///
+//////////////////////////////////////////////////////////////////////
+#ifndef ARENA_IMPLEMENTATION
+
+/*
+ * arena_alloc_aligned: 
+ * Aligns a memory address forward to the next specified power-of-two boundary in the arena buffer
+ * @param arena: Memory address to align (as uintptr_t)
+ * @param size: Desired alignment value (must be power of 2)
+ * @param alignment: Desired alignment value (must be power of 2)
+ * @return WIP
+ * @note Example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
+*/
+void *arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
+void *arena_alloc(size_t size, void *context);
+void *arena_free(size_t size, void *ptr, void *context);
+void arena_free_all(void *context, void *buffer);
+Arena arena_init(void *buffer, size_t size);
 
 void *
 arena_alloc_aligned(Arena *a, size_t size, size_t alignment) {
