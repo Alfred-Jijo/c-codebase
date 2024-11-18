@@ -56,12 +56,12 @@ Arena arena_init(void *buffer, size_t size);
  * @example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
  */
 
-usize align_forward(usize ptr, size_t alignment) {
+usize
+align_forward(usize ptr, size_t alignment) {
     usize p, a, modulo;
     if (!is_power_of_two(alignment)) {
         return 0;
     }
-
     p = ptr;
     a = (usize)alignment;
     modulo = p & (a - 1);
@@ -114,6 +114,7 @@ arena_free_all(void *context, void *buffer) {
     a->offset = 0;
     a->committed = 0;
     free(buffer);
+    buffer = NULL;
     a->size = 0;
 }
 
@@ -130,7 +131,7 @@ arena_print(const Arena *arena) {
     printf("commited: %zu, size: %zu\n", arena->committed, arena->size);
 }
 
-#define arena_alloc_init(a) (Allocator){arena_alloc, arena_free, a}
+#define arena_alloc_init(a) (Allocator) { arena_alloc, arena_free, a }
 
 #endif //ARENA_IMPLEMENTATION
 #endif //ALLOCATOR_H
