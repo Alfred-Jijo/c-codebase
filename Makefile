@@ -3,10 +3,10 @@ VERSION = 0.0.9
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
-CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow -march=native
+CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
-SRCLIB = lib/Allocator.c lib/DSA.c
-TESTLIB = lib/Allocator.c lib/rktest.c
+SRCLIB = lib/Allocator.c lib/DSA.c 
+TESTLIB = lib/Allocator.c lib/unity.c
 
 SRC = $(SRCLIB) src/main.c
 OBJ = $(SRC:%.c=%.o)
