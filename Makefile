@@ -18,28 +18,29 @@ OUT = out/
 INCLUDE = -Iinclude 
 
 all: clean $(NAME) run
-
-$(NAME): $(OBJ)
-	$(GCC) $(OBJ) -o $(OUT)$(NAME) $(CFLAGS) $(INCLUDE)
+test: clean_test build_test run_test
 
 .c.o:
 	$(GCC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
+$(NAME): $(OBJ)
+	$(GCC) $(OBJ) -o $(OUT)$(NAME) $(CFLAGS) $(INCLUDE)
+
 run: $(NAME)
 	$(OUT)$(NAME)
-
-test: $(TEST_OBJ) 
-	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
-
-run_test: test
-	$(OUT)test
 
 clean:
 	$(RM) $(OBJ)
 	$(RM) $(OUT)$(NAME)
 
+build_test: $(TEST_OBJ) 
+	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
+
+run_test: 
+	$(OUT)test
+
 clean_test:
-	$(RM) $(TESTOBJ)
+	$(RM) $(TEST_OBJ)
 	$(RM) $(OUT)test
 
 .PHONY: all clean test

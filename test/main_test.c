@@ -1,6 +1,8 @@
-#include <common.h>
 #include <stdbool.h>
 #include <unity/unity.h>
+
+#include <common.h>
+#include <Allocator.h>
 
 void 
 setUp() {
@@ -13,14 +15,14 @@ tearDown() {
 }
 
 void
-test_func(void) {
-	TEST_ASSERT( 1 == 1);
+test_arena_alloc() {
+	TEST_ASSERT_EQUAL(42, 42);
 }
 
 int
 main(void) {
 	UNITY_BEGIN();
-	RUN_TEST(test_func);
+	RUN_TEST(test_arena_alloc);
 	return UNITY_END();
 }
 
