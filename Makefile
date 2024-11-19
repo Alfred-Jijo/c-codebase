@@ -1,5 +1,5 @@
 NAME = codebase
-VERSION = 0.0.8
+VERSION = 0.0.9
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
@@ -31,15 +31,15 @@ run: $(NAME)
 test: $(TEST_OBJ) 
 	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
 
-run_test: clean_test test
+run_test: test
 	$(OUT)test
 
 clean:
 	$(RM) $(OBJ)
-	$(RM) $(TESTOBJ)
 	$(RM) $(OUT)$(NAME)
 
 clean_test:
+	$(RM) $(TESTOBJ)
 	$(RM) $(OUT)test
 
-.PHONY: all clean clean_test
+.PHONY: all clean test
