@@ -3,7 +3,7 @@ VERSION = 0.0.8
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
-CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
+CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow -march=native
 
 SRCLIB = lib/Allocator.c lib/DSA.c
 TESTLIB = lib/Allocator.c lib/rktest.c
