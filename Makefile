@@ -2,7 +2,7 @@ NAME = codebase
 VERSION = 0.0.9
 PREFIX ?= $(HOME)/.local
 
-GCC ?= gcc
+CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
 SRCLIB = lib/Allocator.c lib/DSA.c 
@@ -21,10 +21,10 @@ all: clean $(NAME) run
 test: clean_test build_test run_test
 
 .c.o:
-	$(GCC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
+	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 $(NAME): $(OBJ)
-	$(GCC) $(OBJ) -o $(OUT)$(NAME) $(CFLAGS) $(INCLUDE)
+	$(CC) $(OBJ) -o $(OUT)$(NAME) $(CFLAGS) $(INCLUDE)
 
 run: $(NAME)
 	$(OUT)$(NAME)
@@ -34,7 +34,7 @@ clean:
 	$(RM) $(OUT)$(NAME)
 
 build_test: $(TEST_OBJ) 
-	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
+	$(CC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
 
 run_test: 
 	$(OUT)test
