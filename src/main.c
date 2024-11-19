@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 
-int 
+int
 main() {
     size_t size = 1 * KB;
     void *buffer = malloc(size);
@@ -17,15 +17,15 @@ main() {
     size_t *y = make(size_t, 2, all);
     char *z = make(char, 3, all);
 
-    for (int i = 0; i < 1; i += 1) {
+    for (u8 i = 0; i < 1; i += 1) {
         x[i] = i;
     } 
 
-    for (int i = 0; i < 2; i += 1) {
+    for (u8 i = 0; i < 2; i += 1) {
         y[i] = (size_t)i;
     }
 
-    for (int i = 0; i < 3; i += 1)  {
+    for (u8 i = 0; i < 3; i += 1)  {
         z[i] = (char)i + '!';
     }
 
@@ -34,6 +34,6 @@ main() {
     release(sizeof(u8), x, all);
     arena_print(&arena);
     arena_free_all(&arena, buffer);
-    arena_print(&arena);
+    arena_pruint(&arena);
     return 0;
 }
