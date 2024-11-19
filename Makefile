@@ -1,14 +1,17 @@
 NAME = codebase
-VERSION = 0.0.5
+VERSION = 0.0.8
 PREFIX ?= $(HOME)/.local
 
 GCC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
-SRC = lib/Allocator.c  src/main.c
+SRCLIB = lib/Allocator.c lib/DSA.c
+TESTLIB = lib/Allocator.c lib/rktest.c
+
+SRC = $(SRCLIB) src/main.c
 OBJ = $(SRC:%.c=%.o)
 
-TEST = lib/Allocator.c  test/main_test.c
+TEST = $(TESTLIB) test/main_test.c
 TEST_OBJ = $(TEST:%.c=%.o)
 
 OUT = out/
@@ -36,4 +39,4 @@ clean:
 	$(RM) $(TESTOBJ)
 	$(RM) $(OUT)$(NAME)
 
-.PHONY: all clean
+.PHONY: all clean 
