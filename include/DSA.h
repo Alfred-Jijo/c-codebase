@@ -1,7 +1,7 @@
 #ifndef DSALGO_H
 #define DSALGO_H
 
-int empty();
+int empty(void);
 
 
 #endif // DSALGO_H

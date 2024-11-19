@@ -1,5 +1,6 @@
 #include <DSA.h>
 
-int empty() {
+int 
+empty(void) {
     return 0;
 }

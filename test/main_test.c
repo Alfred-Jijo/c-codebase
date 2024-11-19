@@ -1,7 +1,5 @@
 #include <common.h>
 #include <rktest.h>
-#include <minwindef.h>
-#include <Windows.h>
 
 int
 main (int argc, char **argv) {
