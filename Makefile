@@ -6,7 +6,7 @@ CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
 SRCLIB = lib/Allocator.c lib/DSA.c 
-TESTLIB = lib/Allocator.c lib/unity.c
+TESTLIB = lib/Allocator.c lib/unity/unity.c
 
 SRC = $(SRCLIB) src/main.c
 OBJ = $(SRC:%.c=%.o)
@@ -15,7 +15,7 @@ TEST = $(TESTLIB) test/main_test.c
 TEST_OBJ = $(TEST:%.c=%.o)
 
 OUT = out/
-INCLUDE = -Iinclude 
+INCLUDE = -Iinclude -Ilib/unity/
 
 all: clean $(NAME) run
 test: clean_test build_test run_test
@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 run: $(NAME)
 	$(OUT)$(NAME)
 
-clean:
+clean: clean_test
 	$(RM) $(OBJ)
 	$(RM) $(OUT)$(NAME)
 
