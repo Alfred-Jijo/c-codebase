@@ -8,8 +8,8 @@ make
 make test
 ```
 
-make - everything will be done for you including running the main.c in src
-make test - everything test will be run 
+- `make`: everything will be done for you including running the main.c in src
+- `make test`:everything test will be run 
 
 ## Current Allocators implemented
 - [x] Arena Allocator
