@@ -29,9 +29,9 @@ run: $(NAME)
 	$(OUT)$(NAME)
 
 test: $(TEST_OBJ) 
-	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE)
+	$(GCC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
 
-run_test: test
+run_test: clean_test test
 	$(OUT)test
 
 clean:
@@ -39,4 +39,7 @@ clean:
 	$(RM) $(TESTOBJ)
 	$(RM) $(OUT)$(NAME)
 
-.PHONY: all clean 
+clean_test:
+	$(RM) $(OUT)test
+
+.PHONY: all clean clean_test

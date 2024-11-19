@@ -1,6 +1,11 @@
 #include <common.h>
 #include <rktest/rktest.h>
 
+int
+main (int argc, char **argv) {
+    return rktest_main(argc, argv);
+}
+
 u8 factorial(u8 n) {
 	u8 result = 1;
 	for (u8 i = 1; i <= n; i++) {
