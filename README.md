@@ -1,8 +1,11 @@
 # A Collection Of All Random Stuff I Wanna Know About Implemented In C
 
 ## Quick Start
+
 **NOTE** Best Works on linux/unix systems use `wsl` for Windows
+
 Requirements - gcc make
+
 ```sh
 make
 make test
