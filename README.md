@@ -2,10 +2,14 @@
 
 ## Quick Start
 Requirements - gcc make
+**NOTE** you need to make a directory called `out`
 ```sh
 make
+make test
 ```
-and everything will be done for you
+
+make - everything will be done for you including running the main.c in src
+make test - everything test will be run 
 
 ## Current Allocators implemented
 - [x] Arena Allocator
