@@ -1,8 +1,8 @@
 # A Collection Of All Random Stuff I Wanna Know About Implemented In C
 
 ## Quick Start
+**NOTE** Best Works on linux/unix systems use `wsl` for Windows
 Requirements - gcc make
-**NOTE** you need to make a directory called `out`
 ```sh
 make
 make test
