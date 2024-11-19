@@ -13,4 +13,5 @@ and everything will be done for you
 
 ## Current Data-Structures implemented
 - [ ] Dynamic Arrays
+- [ ] Linked Lists
 - [ ] Every other Data Structure

@@ -41,6 +41,11 @@ typedef struct arena_allocator {
 
 
 //! Functions
+///////////////////////////////////////////////////////////////////////
+/// Arena Implementation                                           ///
+//////////////////////////////////////////////////////////////////////
+#ifndef ARENA_IMPLEMENTATION
+
 /*
  * align_forward: 
  * Aligns a memory address forward to the next specified power-of-two boundary
@@ -49,6 +54,7 @@ typedef struct arena_allocator {
  * @return Aligned address, or 0 if alignment is not a power of 2
  * @example align_forward(74, 8) returns 80 (next 8-byte aligned address)
  */
+
 usize align_forward(usize ptr, size_t alignment);
 
 usize
@@ -67,10 +73,6 @@ align_forward(usize ptr, size_t alignment) {
     return p;
 }
 
-///////////////////////////////////////////////////////////////////////
-/// Arena Implementation                                           ///
-//////////////////////////////////////////////////////////////////////
-#ifndef ARENA_IMPLEMENTATION
 
 /*
  * arena_alloc_aligned: 
@@ -112,7 +114,7 @@ arena_alloc(size_t size, void *context) {
     return arena_alloc_aligned((Arena *)context, size, DEFAULT_ALIGNMENT);
 }
 
-//does nothing
+//does nothing for arenas
 void *
 arena_free(size_t size, void *ptr, void *context) {
     (void)size;
