@@ -6,7 +6,7 @@ CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
 SRCLIB = lib/Allocator.c lib/DSA.c 
-TESTLIB = lib/Allocator.c lib/unity/unity.c
+TESTLIB = $(SRCLIB) lib/unity/unity.c
 
 SRC = $(SRCLIB) src/main.c
 OBJ = $(SRC:%.c=%.o)
