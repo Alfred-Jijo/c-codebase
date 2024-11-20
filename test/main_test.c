@@ -5,17 +5,17 @@
 #include <Allocator.h>
 
 void 
-setUp() {
+setUp(void) {
 
 }
 
 void
-tearDown() {
+tearDown(void) {
 
 }
 
 void
-test_arena_alloc() {
+test_arena_alloc(void) {
 	TEST_ASSERT_EQUAL(42, 42);
 }
 
