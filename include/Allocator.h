@@ -134,6 +134,7 @@ arena_free_all(void *context, void *buffer) {
     a->committed = 0;
     free(buffer);
     buffer = NULL;
+    a->base = buffer;
     a->size = 0;
 }
 
@@ -147,7 +148,7 @@ arena_init(void *buffer, size_t size) {
 
 void
 arena_print(const Arena *arena) {
-    printf("commited: %zu, size: %zu\n", arena->committed, arena->size);
+    printf("base: %p, commited: %zu, size: %zu\n", arena->base, arena->committed, arena->size);
 }
 
 #define arena_alloc_init(a) (Allocator) { arena_alloc, arena_free, a }
