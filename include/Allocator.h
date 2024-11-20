@@ -56,9 +56,6 @@ typedef struct arena_allocator {
  * @example align_forward(74, 8) returns 80 (next 8-byte aligned address)
  */
 
-usize 
-align_forward(usize ptr, size_t alignment);
-
 usize
 align_forward(usize ptr, size_t alignment) {
     usize p, a, modulo;
@@ -86,21 +83,6 @@ align_forward(usize ptr, size_t alignment) {
  *         if remaining space in arena is insufficient
  * @note Example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
 */
-
-void *
-arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
-
-void *
-arena_alloc(size_t size, void *context);
-
-void *
-arena_free(size_t size, void *ptr, void *context);
-
-void 
-arena_free_all(void *context, void *buffer);
-
-Arena 
-arena_init(void *buffer, size_t size);
 
 void *
 arena_alloc_aligned(Arena *a, size_t size, size_t alignment) {
