@@ -18,7 +18,7 @@ OUT = out/
 INCLUDE = -Iinclude -Ilib/unity/
 
 all: clean $(NAME) run
-test: clean_test build_test run_test
+test: clean_test $(NAME)_test run_test
 
 .c.o:
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
@@ -33,7 +33,7 @@ clean: clean_test
 	$(RM) $(OBJ)
 	$(RM) $(OUT)$(NAME)
 
-build_test: $(TEST_OBJ) 
+$(NAME)_test: $(TEST_OBJ) 
 	$(CC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE)
 
 run_test: 
