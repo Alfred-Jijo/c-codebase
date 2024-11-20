@@ -12,12 +12,6 @@ typedef struct common_allocator {
     void *context;
 } Allocator;
 
-typedef struct arena_allocator {
-    void *base;
-    size_t size;
-    size_t offset;
-    size_t committed;
-} Arena;
 
 //! MACROS
 /*
@@ -46,6 +40,13 @@ typedef struct arena_allocator {
 /// Arena Implementation                                           ///
 //////////////////////////////////////////////////////////////////////
 #ifndef ARENA_IMPLEMENTATION
+
+typedef struct arena_allocator {
+    void *base;
+    size_t size;
+    size_t offset;
+    size_t committed;
+} Arena;
 
 /*
  * align_forward: 
