@@ -7,8 +7,8 @@
 #include <common.h>
 
 typedef struct common_allocator {
-    void *(*alloc_func) (size_t size, void *context);
-    void *(*free_func) (size_t size, void *ptr, void *context);
+    void *(*alloc) (size_t size, void *context);
+    void *(*free) (size_t size, void *ptr, void *context);
     void *context;
 } Allocator;
 
@@ -29,7 +29,7 @@ typedef struct arena_allocator {
  * @return Pointer to the allocated memory, cast to type T*
  * @note Returns NULL if allocation fails
  */
-#define make(T, n, a) ((T *)((a).alloc_func(sizeof(T) * (n), (a).context)))
+#define make(T, n, a) ((T *)((a).alloc(sizeof(T) * (n), (a).context)))
 
 /*
  * release:
@@ -38,7 +38,7 @@ typedef struct arena_allocator {
  * @param p: Pointer to the memory block to free
  * @param a: Allocator structure containing free functions and context
  */
-#define release(s, p, a) ((a).free_func((s), (p), (a).context))
+#define release(s, p, a) ((a).free((s), (p), (a).context))
 
 
 //! Functions
@@ -56,7 +56,8 @@ typedef struct arena_allocator {
  * @example align_forward(74, 8) returns 80 (next 8-byte aligned address)
  */
 
-usize align_forward(usize ptr, size_t alignment);
+usize 
+align_forward(usize ptr, size_t alignment);
 
 usize
 align_forward(usize ptr, size_t alignment) {
@@ -86,11 +87,20 @@ align_forward(usize ptr, size_t alignment) {
  * @note Example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
 */
 
-void *arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
-void *arena_alloc(size_t size, void *context);
-void *arena_free(size_t size, void *ptr, void *context);
-void arena_free_all(void *context, void *buffer);
-Arena arena_init(void *buffer, size_t size);
+void *
+arena_alloc_aligned(Arena *arena, size_t size, size_t alignment);
+
+void *
+arena_alloc(size_t size, void *context);
+
+void *
+arena_free(size_t size, void *ptr, void *context);
+
+void 
+arena_free_all(void *context, void *buffer);
+
+Arena 
+arena_init(void *buffer, size_t size);
 
 void *
 arena_alloc_aligned(Arena *a, size_t size, size_t alignment) {
@@ -126,7 +136,6 @@ arena_free(size_t size, void *ptr, void *context) {
     return 0;
 }
 
-
 void 
 arena_free_all(void *context, void *buffer) {
     Arena *a = (Arena *)context;
@@ -152,4 +161,5 @@ arena_print(const Arena *arena) {
 #define arena_alloc_init(a) (Allocator) { arena_alloc, arena_free, a }
 
 #endif //ARENA_IMPLEMENTATION
+
 #endif //ALLOCATOR_H

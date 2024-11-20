@@ -1,6 +1,2 @@
+#define DYNAMIC_ARRAY_IMPLEMENTATION
 #include <DSA.h>
-
-int 
-empty(void) {
-    return 0;
-}
