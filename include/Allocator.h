@@ -132,9 +132,7 @@ arena_free_all(void *context, void *buffer) {
     Arena *a = (Arena *)context;
     a->offset = 0;
     a->committed = 0;
-    free(buffer);
-    buffer = NULL;
-    a->base = buffer;
+    (void)buffer;
     a->size = 0;
 }
 
