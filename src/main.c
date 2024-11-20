@@ -31,8 +31,6 @@ main() {
 
 
     arena_print(&arena);
-    release(sizeof(u8), x, all);
-    arena_print(&arena);
     arena_free_all(&arena, buffer);
     arena_print(&arena);
     return 0;
