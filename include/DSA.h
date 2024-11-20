@@ -5,7 +5,15 @@
 #include <stdlib.h>
 
 #include <string.h>
-#include <Allocator.h>
+
+#ifndef ALLOCATOR_H
+typedef struct common_allocator {
+    void *(*alloc) (size_t size, void *context);
+    void *(*free) (size_t size, void *ptr, void *context);
+    void *context;
+} Allocator;
+#endif
+
 #include <common.h>
 
 #ifndef DYNAMIC_ARRAY_IMPLEMENTATION

@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 #include <common.h>
-
 typedef struct common_allocator {
     void *(*alloc) (size_t size, void *context);
     void *(*free) (size_t size, void *ptr, void *context);
