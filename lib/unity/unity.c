@@ -5,7 +5,7 @@
     SPDX-License-Identifier: MIT
 ========================================================================= */
 
-#include <unity/unity.h>
+#include <unity.h>
 
 #ifndef UNITY_PROGMEM
 #define UNITY_PROGMEM

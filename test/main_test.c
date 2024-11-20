@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include <unity/unity.h>
+#include <unity.h>
 
 #include <common.h>
 #include <Allocator.h>
