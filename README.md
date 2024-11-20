@@ -17,8 +17,13 @@ make test
 ## Current Allocators implemented
 - [x] Arena Allocator
 - [ ] Stack Allocator
+- [ ] Pool/Block Allocator
 
 ## Current Data-Structures implemented
 - [ ] Dynamic Arrays
 - [ ] Linked Lists
 - [ ] Every other Data Structure
+
+## Current Search-Algorithims implemented
+- [ ] Linear Search
+- [ ] Every other Search Algorithim 
