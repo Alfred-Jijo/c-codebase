@@ -1,4 +1,5 @@
 #include <stdbool.h>
+
 #include <unity.h>
 
 #include <common.h>

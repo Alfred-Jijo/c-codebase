@@ -1,9 +1,10 @@
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 
-#include <common.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <common.h>
 
 typedef struct common_allocator {
     void *(*alloc_func) (size_t size, void *context);
