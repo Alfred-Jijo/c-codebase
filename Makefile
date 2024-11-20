@@ -34,7 +34,7 @@ clean: clean_test
 	$(RM) $(OUT)$(NAME)
 
 build_test: $(TEST_OBJ) 
-	$(CC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE) -lm
+	$(CC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE)
 
 run_test: 
 	$(OUT)test
