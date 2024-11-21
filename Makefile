@@ -5,7 +5,7 @@ PREFIX ?= $(HOME)/.local
 CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
 
-SRCLIB = lib/Arena.c lib/DSA.c 
+SRCLIB = lib/arena.c lib/dsa.c lib/gpa.c
 TESTLIB = $(SRCLIB) lib/unity/unity.c
 
 SRC = $(SRCLIB) src/main.c

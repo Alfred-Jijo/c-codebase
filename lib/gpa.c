@@ -7,7 +7,7 @@ gpa_alloc(size_t size, void *context) {
 }
 
 void *
-arena_free(size_t size, void *ptr, void *context) {
+gpa_free(size_t size, void *ptr, void *context) {
     (void)size;
     (void)context;
     free(ptr);
