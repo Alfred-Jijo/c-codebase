@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <Allocator.h>
+#include <Allocator/Allocator.h>
+#include <Allocator/Arena.h>
 #include <common.h>
 #include <DSA.h>
 
@@ -32,7 +33,7 @@ main() {
 
 
     arena_print(&arena);
-    arena_free_all(&arena, buffer);
+    arena_free_all(&arena);
     free(buffer);
     buffer = NULL;
     arena.base = buffer;
