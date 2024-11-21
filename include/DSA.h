@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <Allocator/Allocator.h>
+#include <allocator/allocator.h>
 #include <common.h>
 
 #ifndef DYNAMIC_ARRAY_IMPLEMENTATION

@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <Allocator/Allocator.h>
-#include <Allocator/Arena.h>
+#include <allocator/allocator.h>
+#include <allocator/arena.h>
+#include <dsa.h>
 #include <common.h>
-#include <DSA.h>
 
 
 int

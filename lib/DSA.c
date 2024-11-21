@@ -1,2 +1,2 @@
 #define DYNAMIC_ARRAY_IMPLEMENTATION
-#include <DSA.h>
+#include <dsa.h>

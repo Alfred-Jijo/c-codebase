@@ -1,5 +1,5 @@
-#include <Allocator/Allocator.h>
-#include <Allocator/Arena.h>
+#include <allocator/allocator.h>
+#include <allocator/arena.h>
 
 /*
  * align_forward: 

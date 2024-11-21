@@ -3,7 +3,8 @@
 #include <unity.h>
 
 #include <common.h>
-#include <Allocator.h>
+#include <allocator/allocator.h>
+#include <allocator/arena.h>
 
 #define ARENA_SIZE 1024
 
@@ -65,7 +66,7 @@ void test_Arena_Reset(void) {
     TEST_ASSERT_NOT_NULL(ptr1);
     TEST_ASSERT_EQUAL_UINT(512, arena.offset);
 
-    arena_free_all(&arena, test_memory);
+    arena_free_all(&arena);
     TEST_ASSERT_EQUAL_UINT(0, arena.offset);
     TEST_ASSERT_EQUAL_UINT(0, arena.committed);
 }

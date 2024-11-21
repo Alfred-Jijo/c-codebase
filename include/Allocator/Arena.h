@@ -1,7 +1,7 @@
 #ifndef ARENA_H
 #define AREnA_H
 
-#include <Allocator/Allocator.h>
+#include <allocator/allocator.h>
 #include <common.h>
 
 typedef struct arena_allocator {
