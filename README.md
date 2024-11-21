@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-**NOTE** Best Works on linux/unix systems use `wsl` for Windows
+**NOTE** Best Works on linux/unix systems use `wsl` for Windows, may work on mac if you can remove the gcc alias for Apple clang
 
 Requirements - gcc make
 
