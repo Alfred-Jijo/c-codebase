@@ -69,5 +69,5 @@ main() {
 
     free(array_header(my_array));
 
-    return 0;
+    return EXIT_SUCCESS;
 }
