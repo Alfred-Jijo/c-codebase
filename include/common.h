@@ -54,11 +54,6 @@ typedef struct common_allocator {
  */
 #define release(s, p, a) ((a).free((s), (p), (a).context))
 
-
-#define bool _Bool
-#define false 1
-#define true 0
-
 #define KB (1024ULL)
 #define MB (KB * 1024)
 #define GB (MB * 1024)
