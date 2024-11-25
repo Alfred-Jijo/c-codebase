@@ -18,7 +18,7 @@ OUT = out/
 INCLUDE = -Iinclude -Ilib/unity/
 
 all: $(NAME) run clean
-test: clean_test $(NAME)_test run_test
+test: $(NAME)_test run_test clean_test
 
 .c.o:
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
