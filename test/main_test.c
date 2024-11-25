@@ -4,7 +4,6 @@
 
 #include <common.h>
 #include <allocator/allocator.h>
-#include <allocator/arena.h>
 
 #define ARENA_SIZE 1024
 
