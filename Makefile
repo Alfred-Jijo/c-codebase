@@ -17,7 +17,7 @@ TEST_OBJ = $(TEST:%.c=%.o)
 OUT = out/
 INCLUDE = -Iinclude -Ilib/unity/
 
-all: clean $(NAME) run
+all: $(NAME) run clean
 test: clean_test $(NAME)_test run_test
 
 .c.o:
@@ -28,13 +28,14 @@ $(NAME): $(OBJ)
 
 run: $(NAME)
 	clear
-	@echo "$(NAME)"
-	@echo "=========="
+	@echo ""
+	@echo "=====$(NAME)====="
 	$(OUT)$(NAME)
 
 clean: clean_test
 	$(RM) $(OBJ)
 	$(RM) $(OUT)$(NAME)
+	@echo ""
 
 $(NAME)_test: $(TEST_OBJ) 
 	$(CC) $(TEST_OBJ) -o $(OUT)test $(CFLAGS) $(INCLUDE)
@@ -46,7 +47,11 @@ run_test:
 	$(OUT)test
 
 clean_test:
+	@echo ""
+	@echo ""
+	@echo "=====Cleaning====="
 	$(RM) $(TEST_OBJ)
 	$(RM) $(OUT)test
+	@echo ""
 
 .PHONY: all clean test

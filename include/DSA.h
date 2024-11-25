@@ -17,20 +17,20 @@ typedef struct {
 } Array_Header;
 
 void *
-my_alloc(size_t bytes, void *context) {
+array_alloc(size_t bytes, void *context) {
     (void)context;
     return malloc(bytes);
 }
 
 void *
-my_free(size_t bytes, void *ptr, void *context) {
+array_free(size_t bytes, void *ptr, void *context) {
     (void)ptr; (void)context;
     free(ptr);
     ptr = NULL;
     return ptr;
 }
 
-Allocator allocator = { my_alloc, my_free, 0 };
+Allocator allocator = { array_alloc, array_free, 0 };
 
 #define ARRAY_INITIAL_CAPACITY 16
 
@@ -88,7 +88,9 @@ array_ensure_capacity(void *a, size_t item_count, size_t item_size) {
         } else {
             h = 0;
         }
-    } else { h += 1; }
+    } else {
+        h += 1;
+    }
 
     return h;
 }

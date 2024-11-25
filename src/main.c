@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 #include <allocator/allocator.h>
-#include <allocator/arena.h>
 #include <dsa.h>
 #include <common.h>
 
@@ -58,8 +57,6 @@ main() {
     for (size_t i = 0; i < array_length(my_array); i++) {
         printf("my_array[%zu] = %d\n", i, my_array[i]);
     }
-
-    bool b = 1;
 
     goto cleanup;
 

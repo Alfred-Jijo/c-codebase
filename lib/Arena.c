@@ -1,14 +1,5 @@
 #include <allocator/allocator.h>
-#include <allocator/arena.h>
 
-/*
- * align_forward: 
- * Aligns a memory address forward to the next specified power-of-two boundary
- * @param ptr: Memory address to align (as uintptr_t)
- * @param alignment: Desired alignment value (must be power of 2)
- * @return Aligned address, or 0 if alignment is not a power of 2
- * @example align_forward(74, 8) returns 80 (next 8-byte aligned address)
- */
 usize
 align_forward(usize ptr, size_t alignment) {
     usize p, a, modulo;
@@ -25,17 +16,6 @@ align_forward(usize ptr, size_t alignment) {
     return p;
 }
 
-
-/*
- * arena_alloc_aligned: 
- * Aligns a memory address forward to the next specified power-of-two boundary in the arena buffer
- * @param arena: Memory address to align (as uintptr_t)
- * @param size: Desired allocation size in bytes
- * @param alignment: Desired alignment value (must be power of 2)
- * @return Pointer to aligned memory block if successful, NULL if allocation fails or 
- *         if remaining space in arena is insufficient
- * @note Example: align_forward(74, 8) returns 80 (next 8-byte aligned address)
-*/
 void *
 arena_alloc_aligned(Arena *a, size_t size, size_t alignment) {
     usize curr_ptr = (usize)a->base + (usize)a->offset;

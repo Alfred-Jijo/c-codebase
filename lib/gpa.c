@@ -1,4 +1,4 @@
-#include <allocator/gpa.h>
+#include <allocator/allocator.h>
 
 void *
 gpa_alloc(size_t size, void *context) {
