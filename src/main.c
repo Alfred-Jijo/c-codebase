@@ -30,14 +30,6 @@ main() {
     for (u8 i = 0; i < 3; i += 1)  {
         z[i] = (char)i + '!';
     }
-
-
-    arena_print(&arena);
-    arena_free_all(&arena);
-    free(buffer);
-    buffer = NULL;
-    arena.base = buffer;
-    arena_print(&arena);
     
     u8 *my_array = array(u8, &allocator);
 
@@ -67,6 +59,19 @@ main() {
         printf("my_array[%zu] = %d\n", i, my_array[i]);
     }
 
+    bool b = 1;
+
+    goto cleanup;
+
+cleanup:
+    printf("\n");
+    arena_print(&arena);
+    arena_free_all(&arena);
+    free(buffer);
+    buffer = NULL;
+    arena.base = buffer;
+    arena_print(&arena);
+    
     free(array_header(my_array));
 
     return EXIT_SUCCESS;

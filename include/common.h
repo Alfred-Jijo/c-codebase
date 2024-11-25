@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef intptr_t isize;
 typedef uintptr_t usize;
@@ -24,6 +25,10 @@ typedef long double f128;
 typedef uint8_t byte;
 
 // size_t PAGE_SIZE = 0;
+
+#define bool _Bool
+#define false 1
+#define true 0
 
 #define KB (1024ULL)
 #define MB (KB * 1024)
