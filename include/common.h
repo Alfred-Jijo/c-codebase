@@ -54,6 +54,7 @@ typedef struct common_allocator {
  */
 #define release(s, p, a) ((a).free((s), (p), (a).context))
 
+
 #define bool _Bool
 #define false 1
 #define true 0
@@ -64,4 +65,10 @@ typedef struct common_allocator {
 #define DEFAULT_ALIGNMENT (sizeof(void *) * 2)
 #define is_power_of_two(x) (x != 0 && (x & (x - 1)) == 0)
 
+#define bool  _Bool
+#define false 0
+#define true  1
+
 #endif // COMMOM_H
+
+
