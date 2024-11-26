@@ -25,5 +25,5 @@ make test
 - [ ] Every other Data Structure
 
 ## Current Search-Algorithims implemented
-- [ ] Linear Search
+- [x] Linear Search
 - [ ] Every other Search Algorithim 
