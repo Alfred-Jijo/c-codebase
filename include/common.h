@@ -26,7 +26,6 @@ typedef uint8_t byte;
 
 // size_t PAGE_SIZE = 0;
 
-
 #define KB (1024ULL)
 #define MB (KB * 1024)
 #define GB (MB * 1024)
