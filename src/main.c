@@ -5,7 +5,6 @@
 #include <dsa.h>
 #include <common.h>
 
-
 int
 main() {
     size_t size = 1 * KB;
