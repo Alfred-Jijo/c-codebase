@@ -110,5 +110,4 @@ array_ensure_capacity(void *a, size_t item_count, size_t item_size) {
 
 #define array_pop_back(a) (array_header(a)->length -= 1)
 #endif //DYNAMIC_ARRAY_IMPLEMENTATION
-
 #endif // DSALGO_H
