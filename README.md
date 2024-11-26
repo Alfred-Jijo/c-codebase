@@ -18,6 +18,7 @@ make test
 - [x] Arena Allocator
 - [ ] Stack Allocator
 - [ ] Pool/Block Allocator
+- [ ] Scratch Allocator
 
 ## Current Data-Structures implemented
 - [ ] Dynamic Arrays
