@@ -28,3 +28,6 @@ make test
 ## Current Search-Algorithims implemented
 - [x] Linear Search
 - [ ] Every other Search Algorithim 
+
+## Extra Shi
+- [ ] Create a custom String Type
