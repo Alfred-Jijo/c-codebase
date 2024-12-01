@@ -1,4 +1,7 @@
-# A Collection Of All Random Stuff I Wanna Know About Implemented In C
+# This Repos has now been archived, as i have changed the plans fo thie 'codebase'
+# All can now been seen at [mtlib](https://github.com/Moltenna/mtlib.git) 
+
+## A Collection Of All Random Stuff I Wanna Know About Implemented In C
 
 ## Quick Start
 
