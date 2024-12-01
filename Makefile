@@ -1,9 +1,33 @@
-NAME = codebase
+OS := $(shell uname)
+
+ifeq ($(OS), Linux)
+    RM = rm -rf
+    EXE_EXT =
+else ifeq ($(OS), Darwin) # macOS
+    RM = rm -rf
+    EXE_EXT =
+else ifeq ($(OS), Windows_NT)
+    RM = del /Q
+    EXE_EXT = .exe
+endif
+
+
+NAME = codebase$(EXE_EXT)
 VERSION = 0.1.1
 PREFIX ?= $(HOME)/.local
 
-CC ?= gcc
+CC := $(shell which gcc || which clang || echo "gcc")
+CXX := $(shell which g++ || which clang++ || echo "g++")
+
 CFLAGS = -std=c99 -Wall -Wextra -Werror -pedantic -Wno-unused-parameter -Wshadow
+
+ifeq ($(OS), Linux)
+    CFLAGS += -DLINUX
+else ifeq ($(OS), Darwin)
+    CFLAGS += -DMACOS
+else ifeq ($(OS), Windows_NT)
+    CFLAGS += -DWINDOWS
+endif
 
 SRCLIB = lib/arena.c lib/dsa.c lib/gpa.c
 TESTLIB = $(SRCLIB) lib/unity/unity.c
