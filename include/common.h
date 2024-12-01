@@ -62,10 +62,10 @@ global i16 min_16  = (i16) 0x8000;
 global i32 min_i32 = (i32) 0x80000000;
 global i64 min_i64 = (i64) 0x8000000000000000llu;
 
-global i8  max_i8  = (i8) 0x7f;
-global i16 max_i16 = (i16)0x7fff;
-global i32 max_i32 = (i32)0x7fffffff;
-global i64 max_i64 = (i64)0x7fffffffffffffffllu;
+global i8  max_i8  = (i8)  0x7f;
+global i16 max_i16 = (i16) 0x7fff;
+global i32 max_i32 = (i32) 0x7fffffff;
+global i64 max_i64 = (i64) 0x7fffffffffffffffllu;
 
 #endif // COMMOM_H
 
